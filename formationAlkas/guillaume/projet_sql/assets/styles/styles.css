@@ -1,0 +1,380 @@
+body{
+    background-color: #2e2e2e;
+    margin: 0;
+    padding: 0;
+}
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+}
+.banner {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+}
+.cant1{
+    color: rgb(255, 31, 93);
+    position: absolute;
+    top: 22px;
+    left:150px;
+    font-size: 34px;
+    font-weight: bold;
+    white-space: pre;
+}
+.cant2{
+    color: rgb(133, 28, 255);
+    position: absolute;
+    top: 24px;
+    left: 148px;
+    font-size: 34px;
+    font-weight: bold;
+    white-space: pre;
+}
+.cant3{
+    color: rgb(0, 152, 255);
+    position: absolute;
+    top: 26px;
+    left: 146px;
+    font-size: 34px;
+    font-weight: bold;
+    white-space: pre;
+}
+.retour {
+    height: 45px;
+    width: 45px;
+    background-color: #2e2e2e;
+    margin: 30px 30px;
+}
+.add {
+    height: 45px;
+    width: 60px;
+    background-color: #2e2e2e;
+    margin: 30px 30px;
+}
+main{
+    margin-top: 10%;
+}
+h1{
+    text-align: center;
+}
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+}
+.fenetre{
+    display: block;
+    width:300px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+}
+.premiereLigne{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    width: 130px;
+    height: 80px;
+}
+.logoHeure{
+    display: flex;
+}
+.heure{
+    margin:5px 0 0 0;
+    padding: 0;
+    font-weight: bold;
+}
+figure {
+    display: flex;
+    margin: 0;
+}
+.fleche{
+    width:40px;
+    margin-top: 30px;
+}
+.logo{
+    display: block;
+    width: 50px;
+    margin-left: 184px;
+    margin-top: 7px;
+}
+.tete{
+    margin-top: 30px;
+    width: 40px;
+    height: 40px;
+    border:1px #d5d3d3 solid;
+    border-radius: 20px 20px 20px 20px;
+}
+.nom{
+    width: 200px;
+    margin-top: 45px;
+    font-weight: bold;
+    height: 30px;
+    margin-left: 10px;
+}
+.deuxiemeGroup{
+    border-top:1px #d5d3d3 solid;
+}
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 15px 5px 15px 15px;
+    background-color: #0099ff;
+    color: white;
+    width: 220px;
+    height: 42px;
+    margin:3px 10px 5px 50px
+}
+.message{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 13px;
+    text-decoration:none;
+    border-radius: 30px;
+    background-color: #d5d3d3;
+    color: black;
+    width: 200px;
+    height: 35px;
+    padding: 0;
+    margin: 5px 0 5px 10px;
+}
+footer{
+    position: relative;
+    display: block;
+    width: 100%;
+    color:white;
+    text-align: center;
+    vertical-align:center;
+    height: 40px;
+    background-color: #881707;
+    font-size: 13px;
+    left: 0;
+    bottom: 0;
+    padding-top: 12px;
+}
+.pageMessages{
+    font-size: 13px;
+    background-color: #2e2e2e;
+    color: black;
+    padding: 0;
+    margin-top: 80px;
+}
+.designation{
+    display: block;
+    font-size: 15px;
+    padding-left: 5px;
+    width: 350px;
+    background-color: #d5d3d3;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+.designBis{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin:-12px;
+}
+.bulDeMes {
+    display: block;
+    width:300px;
+    background-color:#ffffff;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding-left: 5px;
+}
+label {
+    background-color:#ffffff;
+}
+.pageMessagesform {
+    margin-bottom: 40px;
+    margin-top: 100px;
+    padding:0px
+}
+.h1{
+    margin: 0px auto;
+    color:black;
+    width: 476px;
+    background-color: #E7E7E7;
+    height: 60px;
+    font-size: 2em;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    max-width: 100%;
+    width: 568px;
+    margin:0 auto;
+    list-style:none;
+    box-sizing: border-box;
+    border: 3px solid #FFF;
+    padding: 10px;
+    background-color: #E7E7E7;
+    height: 540px;
+}
+.rangeeformulaire{
+display: flex;
+    flex-flow: row wrap;
+    padding:3px;
+
+}
+.colonneformulaire {
+    display: flex;
+    flex-flow: column wrap;
+    justify-items: center;
+}
+label {
+    background-color: #E7E7E7;
+}
+.input{
+    margin:10px;
+    font-size: 15px;
+    height: 40px;
+    background-color: white;
+    width: 230px;
+}
+.inputdate{
+
+    margin:10px;
+    font-size: 15px;
+    height: 40px;
+    background-color: white;
+    width: 230px;
+}
+.loginform {
+    font-size: 15px;
+    width: 490px;
+    height: 40px;
+    margin:10px;
+    background-color: white;
+}
+.button {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+
+    margin-left: 155px;
+    font-size: 15px;
+    height: 40px;
+    background-color: white;
+    width: 230px;
+}
+.roles{
+    padding: 1px 30px 1px 30px;
+    margin: 10px;
+}
+
+
+.menuNav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 590px;
+    background-color: black;
+    height: 40px;
+    text-align: center;
+    padding-left: 0px;
+    color:white;
+}
+.liMenuNav {
+    display: flex;
+    flex : 1 0 auto;
+    justify-content: center;
+    justify-items: center;
+
+    padding-left: 0px;
+    padding-top: 10px;
+}
+a {
+    text-decoration: none;
+
+}
+.aMenuNav{
+
+    color: rgb(255, 31, 93);
+
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 250px;
+    background-color: black;
+    height: 40px;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 30px;
+    color:white;
+}
+.liMenu{
+    display: flex;
+    flex : 1 0 auto;
+    justify-content: center;
+    justify-items: center;
+
+    padding-left: 0px;
+    padding-top: 10px;
+}
+a {
+    text-decoration: none;
+
+}
+.aMenu{
+
+    color: rgb(255, 31, 93);
+
+}
+
+
+a:hover {
+    color: rgb(0, 152, 255);
+
+}
+blink {
+
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+    color: red;
+    font-size:25px;
+    text-align: center;
+    margin-left: 130px;
+    padding: 0;
+    margin-top: 20px;
+}
+@keyframes clignoter {
+    0%   { color:#000000; }
+    40%   {color:#F1A200; }
+    100% { opacity:#000000; }
+}
+h4 {
+    color: black;
+    font-size:25px;
+    text-align: center;
+    margin-left: 35px;
+    padding: 0;
+    margin-top: 20px;
+}
+.fiche {
+    margin-top: 21px;
+    margin-left: 5px;
+}

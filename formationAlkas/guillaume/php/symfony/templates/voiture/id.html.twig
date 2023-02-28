@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voiture id{% endblock %}
+
+{% block body %}
+    <h1>Voiture id : </h1>
+
+    <section class="table">
+
+
+        <p>{{ voitures.id }}</p>
+        <p>{{ voitures.nom }}</p>
+
+        <a href="{{ path('app_voiture_findAll') }}">lien vers findAll</a><br>
+        <a href="{{ path('app_voiture_find') }}">lien vers find</a><br>
+        <a href="{{ path('app_voiture_findBy') }}">lien vers findBy</a><br>
+        <a href="{{ path('app_voiture_findOneBy') }}">lien vers findOneBy</a><br>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+.header {
+    width: auto;
+    text-align:center;
+    font-size: 2em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration:underline;
+
+}
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+figure {
+    border:1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #ffb751;
+
+
+}

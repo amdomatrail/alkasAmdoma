@@ -1,0 +1,113 @@
+body {
+    background-color: white;
+    /*color: white;*/
+}
+
+.wrapper {
+}
+
+h1 {
+    color: #0099FF;
+    text-shadow: 7px -4px 2px #C632A6;
+}
+
+.messageInformation, .error {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    color: red;
+    font-size: xxx-large;
+}
+
+main {
+    display: flex;
+}
+
+.user p {
+    background-color: #eee;
+    /*color: white;*/
+    display: inline-table;
+
+}
+.user p a {
+    margin-left: 50px;
+}
+
+header[role=banner] {
+    display: flex;
+}
+
+header[role=banner] a {
+    text-decoration: none;
+}
+
+
+header[role=banner] a:hover {
+    text-decoration: underline;
+}
+
+nav[role=navigation] ul {
+    display: flex;
+    background-color: #eee;
+    list-style: none;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+nav[role=navigation] li {
+    margin: 0 10px;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    max-width: 100%;
+    width: 568px;
+    margin:0 auto;
+    list-style:none;
+    box-sizing: border-box;
+    border: 3px solid #FFF;
+    padding: 10px;
+    background-color: #E7E7E7;
+    height: 540px;
+}
+.rangeeformulaire{
+    display: flex;
+    flex-flow: row wrap;
+    padding:3px;
+
+}
+.colonneformulaire {
+    display: flex;
+    flex-flow: column wrap;
+    justify-items: center;
+}
+label {
+    background-color: #E7E7E7;
+}
+.input{
+    margin:10px;
+    font-size: 15px;
+    height: 40px;
+    background-color: white;
+    width: 230px;
+}
+.iconeModif {
+    width: 50px;
+}
+.iconePoub {
+    width: 100px;
+}
+.user_nom {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+footer {
+    background-color: #fff;
+
+}

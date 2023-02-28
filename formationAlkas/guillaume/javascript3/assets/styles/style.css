@@ -1,0 +1,94 @@
+body {
+    background-color: white;
+
+    /*color: white;*/
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header[role=banner] h1 {
+    color: #0099FF;
+    text-shadow: 1px 1px 4px #C632A6;
+}
+
+.messageInformation, .error {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    color: red;
+    font-size: xxx-large;
+}
+
+main {
+    display: flex;
+    /*justify-content: center;*/
+
+    flex-wrap: wrap;
+}
+
+.user {
+    background-color: #eee;
+    /*color: white;*/
+}
+
+header[role=banner] a:hover {
+    text-decoration: underline;
+}
+.user_nom {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.errors
+{
+    background: #d99797;
+    color:black;
+}
+
+.no_errors
+{
+    background:white;
+    color:black;
+}
+#nouvel-item:valid {
+    box-shadow: green;
+}
+#nouvel-item:invalid {
+    box-shadow:red ;
+}
+.navi {
+    justify-content: end;
+    background-color: rgba(204, 202, 202, 0.5);
+}
+
+#meteoAlkas {
+    width:400px;
+    background-color: #45a1c7;
+    border-radius: 30px;
+}
+#cartePersonne {
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+#profil {
+
+    width: 300px;
+    font-size: 14px;
+}
+#elHeader {
+    font-size: 14px;
+}
+.card {
+    display: flex;
+    flex-wrap: wrap;
+}
+footer {
+    background-color: #fff;
+
+}

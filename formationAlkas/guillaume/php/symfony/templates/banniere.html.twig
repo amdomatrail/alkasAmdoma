@@ -1,0 +1,61 @@
+<header role="banner">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" role="navigation">
+
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{  path('home') }}" >GuiguiBlog</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{  path('blog') }}">Articles<span
+                                class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{  path('blog_create') }}">Créer un article</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/exo/formulaire/inscription">Formulaire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link {% if menuExo is defined %}active{% endif %} dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Projet Voiture</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/voiture/new">New</a>
+                        <a class="dropdown-item" {% if menuFindByIdSlug is defined %}active{% endif %} href="/voiture/findBy">FindBy</a>
+                        <a class="dropdown-item" href="/voiture/index">Index</a>
+                        <a class="dropdown-item" href="/voiture/findAll">FindAll</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Projet JS</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/exo/meteo">Météo</a>
+                        <a class="dropdown-item" href="/exo/todo">To do list</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                {% if is_granted('ROLE_USER') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+                        </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+</header>

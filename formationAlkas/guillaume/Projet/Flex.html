@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flex</title>
+    <style>
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-around;
+            border: black 2px solid;
+            list-style: none;
+        }
+        ul >li {
+            border: black 2px solid;
+            width: 100px;
+            text-align: center;
+            font-size: 50px;
+            height: 50px;
+        }
+
+        .test >li:nth-child(1n) {
+            background-color: pink;
+        }
+        .test >li:nth-child(even) {
+            background-color: red;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <ul class="test">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+    </ul>
+</body>
+</html>

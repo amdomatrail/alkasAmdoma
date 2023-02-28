@@ -1,0 +1,81 @@
+body {
+    color:white;
+}
+.flexHead{
+    display: flex;
+    height:120px;
+    font-size:50px;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 550px;
+    border-radius:15px;
+    border: white 5px solid;
+    background-color: #45a1c7;
+}
+.left {
+    margin: 5px;
+    height: 80vh;
+    width: 28%;
+    border-radius:30px;
+    background-color: #ff8b4b;
+    font-size: 30px;
+}
+.liFlexLeft {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 11px;
+    padding-top: 0px;
+    margin-top: 5px;
+    font-size: 25px;
+    list-style: none;
+}
+.liFlexLeft > li{
+    border-bottom:1px solid white;
+    margin: 11px;
+    padding-left: 39px;
+    padding-top: 0px;
+    width: 80%;
+}
+.right {
+    margin: 5px;
+    width: 70%;
+    height: 80vh;
+    border-radius:30px;
+    background-color: #ffb1d9;
+}
+.textFlexRight {
+    margin: 20px;
+}
+
+.flexRightHeader {
+    font-size: 30px;
+
+}
+.flexRightFooter {
+    font-size: 15px;
+}
+.flexContain {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flexFoot{
+    display: flex;
+    flex: 100%;
+    height:40px;
+    flex-wrap: wrap;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius:15px;
+    border: white 5px solid;
+    background-color: #74a674;
+}
+@media (max-width: 800px) {
+    .flexRight,.flexHead,.flexFoot,.flexLeft{
+        flex: 100%;
+    }
+}

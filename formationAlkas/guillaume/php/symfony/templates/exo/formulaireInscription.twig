@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+
+    {{ form_row(form.nom) }} {{ messageNom }}
+    {{ form_row(form.prenom) }} {{ messagePrenom }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.login) }}
+    {{ form_row(form.password) }}
+
+    <button type="submit">Envoyer</button>
+    <div class="bg-danger">
+        {{ message }}
+    </div>
+
+    {{ form_end(form) }}
+
+
+
+    {% if isSub %}
+        {% if testNom %}{% else %} le nom n'est pas ok <br>{% endif %}
+        {% if testPrenom %}{% else %} le prenom n'est pas ok <br>{% endif %}
+        {% if testLogin %}{% else %} le login n'est pas ok <br>{% endif %}
+        {% if password %}{% else %} le password n'est pas ok <br>{% endif %}
+    {% endif %}
+
+{% endblock %}
