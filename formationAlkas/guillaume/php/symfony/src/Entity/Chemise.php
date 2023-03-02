@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ChemiseRepository;
-use app\Entity\MarqueChemise;
+
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ChemiseRepository::class)]
@@ -26,6 +26,10 @@ class Chemise
     #[ORM\ManyToOne(inversedBy: 'chemises')]
     #[ORM\JoinColumn(nullable: false)]
     private ?MarqueChemise $marqueChemise = null;
+
+    #[ORM\ManyToOne(inversedBy: 'chemises')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -78,5 +82,21 @@ class Chemise
         $this->marqueChemise = $marqueChemise;
 
         return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function get(string $string)
+    {
     }
 }

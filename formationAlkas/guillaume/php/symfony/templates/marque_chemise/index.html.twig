@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MarqueChemise index{% endblock %}
+
+{% block body %}
+    <h1>MarqueChemise index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for marque_chemise in marque_chemises %}
+            <tr>
+                <td>{{ marque_chemise.id }}</td>
+                <td>{{ marque_chemise.nom }}</td>
+                <td>
+                    <a href="{{ path('app_marque_chemise_show', {'id': marque_chemise.id}) }}">show</a>
+                    <a href="{{ path('app_marque_chemise_edit', {'id': marque_chemise.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_marque_chemise_new') }}">Create new</a>
+{% endblock %}

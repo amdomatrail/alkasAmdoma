@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chemise index{% endblock %}
+
+{% block body %}
+    <h1>Chemise index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Taille</th>
+                <th>Couleur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chemise in chemises %}
+            <tr>
+                <td>{{ chemise.id }}</td>
+                <td>{{ chemise.nom }}</td>
+                <td>{{ chemise.taille }}</td>
+                <td>{{ chemise.couleur }}</td>
+                <td>
+                    <a href="{{ path('app_chemise_show', {'id': chemise.id}) }}">show</a>
+                    <a href="{{ path('app_chemise_edit', {'id': chemise.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_chemise_new') }}">Create new</a>
+{% endblock %}

@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MarqueChemiseRepository;
-use app\Entity\Chemise;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -21,6 +21,10 @@ class MarqueChemise
 
     #[ORM\OneToMany(mappedBy: 'marqueChemise', targetEntity: Chemise::class, orphanRemoval: true)]
     private Collection $chemises;
+
+    #[ORM\ManyToOne(inversedBy: 'marqueChemises')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function __construct()
     {
@@ -70,6 +74,18 @@ class MarqueChemise
                 $chemise->setMarqueChemise(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

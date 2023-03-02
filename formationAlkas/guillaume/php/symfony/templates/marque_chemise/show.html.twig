@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MarqueChemise{% endblock %}
+
+{% block body %}
+    <h1>MarqueChemise</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ marque_chemise.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ marque_chemise.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_marque_chemise_index') }}">back to list</a>
+
+    <a href="{{ path('app_marque_chemise_edit', {'id': marque_chemise.id}) }}">edit</a>
+
+    {{ include('marque_chemise/_delete_form.html.twig') }}
+{% endblock %}

@@ -255,3 +255,10 @@ Configurer en mode https plutôt que http en local (https://symfony.com/doc/curr
     symfony server:ca:install
 
 ## tester son role :
+
+## Return this
+sert à chainer avec le design patern fluent.
+
+## #[IsGranted('ROLE_USER')]
+
+Permet d'autoriser un accès en controlant la connexion d'un utilisateur 
