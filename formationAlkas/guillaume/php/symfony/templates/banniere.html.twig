@@ -1,7 +1,6 @@
 <header role="banner">
 
 
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" role="navigation">
 
     <div class="container-fluid">
@@ -53,13 +52,15 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+
                 {% if is_granted('ROLE_USER') %}
+                    <p>{{ app.user.nom }}</p>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
                 </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+                            <a class="nav-link my-2 my-sm-0" style="vertical-align: inherit;" href="{{ path('app_login') }}">Se connecter</a>
                         </li>
                 {% endif %}
             </ul>

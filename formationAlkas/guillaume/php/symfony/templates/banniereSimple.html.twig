@@ -1,0 +1,27 @@
+<header role="banner">
+
+    <nav class="navbar shadow-1 primary" aria-label="example navbar">
+        <a href="#" class="navbar-logo hide-sm-down">
+            <img src="https://useaxentix.com/img/axentix.svg" class="py-3" alt="Axentix">
+        </a>
+
+        <a href="/" class="navbar-brand">Acceuil</a>
+        <div class="navbar-menu ml-auto hide-xs text-grey text-light-3 font-w600 hover-text-dark">
+            {% if is_granted('ROLE_USER') %}
+                <a class="navbar-link" href="/user/profil">Mon profil</a>
+                <a class="navbar-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a class="navbar-link" href="/login">Login</a>
+                <a class="navbar-link" href="/register">Register</a>
+
+
+            {% endif %}
+
+        </div>
+
+
+        <button class="btn transparent text-white hide-sm-up font-s5 ml-auto hide-sm-up" aria-label="Menu button">
+            <span class="iconify-inline" data-icon="mdi:menu"></span>
+        </button>
+    </nav>
+</header>

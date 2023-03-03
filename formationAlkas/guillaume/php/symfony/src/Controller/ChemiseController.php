@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Chemise;
-
 use App\Form\ChemiseType;
 use App\Repository\ChemiseRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -60,28 +59,37 @@ class ChemiseController extends AbstractController
     public function edit(Request $request, Chemise $chemise, ChemiseRepository $chemiseRepository): Response
     {
 
-        $userId = $this->getUser();
-        $chemiseUserId = $chemise->getUser();
+        $userId = $this->getUser()->getId();
 
-        if ($userId === $chemiseUserId) {
+        $chemiseUserId = $chemise->getId();
 
-            $form = $this->createForm(ChemiseType::class, $chemise);
-            $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
-                $chemiseRepository->save($chemise, true);
-
-                return $this->redirectToRoute('app_chemise_index', [], Response::HTTP_SEE_OTHER);
+//        if ($userId !== $chemiseUserId && !$this->isGranted('ROLE_ADMIN')) {
+//            throw new \Exception('fuck u');
+//        }
+        try {
+            $this->denyAccessUnlessGranted('modifChemise', $chemise);
+        } catch (\Exception $e) {
+            if ($e->getCode() === 403) {
+                $this->addFlash("warning", "il y a une erreur de chemise");
+            } else {
+                $this->addFlash('error', $e->getMessage());
             }
+            return $this->redirectToRoute('home');
+        }
+        $form = $this->createForm(ChemiseType::class, $chemise);
+        $form->handleRequest($request);
 
-            return $this->renderForm('chemise/edit.html.twig', [
-                'chemise' => $chemise,
-                'form' => $form,
-            ]);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $chemiseRepository->save($chemise, true);
 
-        } else {
             return $this->redirectToRoute('app_chemise_index', [], Response::HTTP_SEE_OTHER);
         }
+
+        return $this->renderForm('chemise/edit.html.twig', [
+            'chemise' => $chemise,
+            'form' => $form,
+        ]);
 
 
     }
@@ -89,10 +97,25 @@ class ChemiseController extends AbstractController
     #[Route('/{id}', name: 'app_chemise_delete', methods: ['POST'])]
     public function delete(Request $request, Chemise $chemise, ChemiseRepository $chemiseRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$chemise->getId($this->getUser()), $request->request->get('_token'))) {
+        try {
+            $this->denyAccessUnlessGranted('modifChemise', $chemise);
+        } catch (\Exception $e) {
+            if ($e->getCode() === 403) {
+                $this->addFlash("warning", "il y a une erreur de suppression");
+            } else {
+                $this->addFlash('error', $e->getMessage());
+            }
             $chemiseRepository->remove($chemise, true);
         }
 
-        return $this->redirectToRoute('app_chemise_index', [], Response::HTTP_SEE_OTHER);
-    }
+
+        if ($this->isCsrfTokenValid('delete' . $chemise->getId($this->getUser()), $request->request->get('_token'))) {
+            $chemiseRepository->remove($chemise, true);
+        }
+
+       return $this->redirectToRoute('app_chemise_index', [], Response::HTTP_SEE_OTHER);
+   }
+
+
+
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon profil</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@2.2.1/dist/axentix.min.css">
+</head>
+
+<body class="layout-sidenav">
+    <header>
+        {% include "banniereSimple.html.twig" %}
+
+    </header>
+
+    <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
+        <div class="sidenav-header">
+            <img class="col xs3 sidenav-logo dropshadow-5" src="https://img.freepik.com/photos-premium/homme-sans-visage-homme-impersonnel-mannequin-portrait-anonyme-homme-identite-abstraite-illustration_91497-8366.jpg?w=1480" alt="Photo de pforil" />
+        </div>
+        <a href="#" class="sidenav-link active">Mon profil</a>
+        <a href="#" class="sidenav-link">Mes annonces</a>
+    </div>
+
+    <main>
+        <!-- Code here the main content -->
+        <button data-target="example-sidenav"
+                class="btn rounded-1 press amaranth dark-1 hide-md-up">
+            Open sidenav
+        </button>
+        {% block body %}{% endblock %}
+    </main>
+
+    <footer class="footer primary">
+        Copyright © 2023 - Example
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axentix@2.2.1/dist/axentix.min.js"></script>
+</body>
+</html>

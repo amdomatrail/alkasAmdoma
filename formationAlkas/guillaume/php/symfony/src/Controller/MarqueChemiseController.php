@@ -54,6 +54,18 @@ class MarqueChemiseController extends AbstractController
     #[Route('/{id}/edit', name: 'app_marque_chemise_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, MarqueChemise $marqueChemise, MarqueChemiseRepository $marqueChemiseRepository): Response
     {
+        try {
+            $this->denyAccessUnlessGranted('modifMarque', $marqueChemise);
+        } catch (\Exception $e) {
+            if ($e->getCode() === 403) {
+                $this->addFlash("warning", "il y a une erreur de chemise");
+            } else {
+                $this->addFlash('error', $e->getMessage());
+            }
+            return $this->redirectToRoute('home');
+        }
+
+
         $form = $this->createForm(MarqueChemiseType::class, $marqueChemise);
         $form->handleRequest($request);
 

@@ -1,0 +1,73 @@
+<header role="banner">
+
+    <nav class="navbar shadow-1 primary" aria-label="example navbar">
+        <a href="#" class="navbar-logo hide-sm-down">
+            <img src="https://useaxentix.com/img/axentix.svg" class="py-3" alt="Axentix">
+        </a>
+
+        <a href="/" class="navbar-brand">Acceuil</a>
+        {% block nav %}
+        <div class="navbar-menu ml-auto hide-xs text-grey text-light-3 font-w600 hover-text-dark">
+            <div class="dropdown" id="js-dropdown" data-ax="dropdown">
+                <div class="navbar-link active" data-target="js-dropdown">
+                    Projet JS
+                </div>
+                <div class="dropdown-content dropdown-left white shadow-1">
+                    <a class="dropdown-item" href="/exo/meteo">Météo</a>
+                    <a class="dropdown-item" href="/exo/todo">To do list</a>
+                </div>
+            </div>
+
+
+            <div class="dropdown" id="chemise-dropdown" data-ax="dropdown">
+                <div class="navbar-link active" data-target="chemise-dropdown">
+                    Projet Chemise
+                </div>
+                <div class="dropdown-content dropdown-left white shadow-1">
+                    <a class="dropdown-item" href="/chemise/new">Crée chemise</a>
+                    <a class="dropdown-item" href="/marque/chemise/">Liste des marques</a>
+                    <a class="dropdown-item" href="/chemise/">Liste des chemises</a>
+                </div>
+            </div>
+
+            <div class="dropdown" id="blog-dropdown" data-ax="dropdown">
+                <div class="navbar-link active" data-target="blog-dropdown">
+                    Projet Blog
+                </div>
+                <div class="dropdown-content dropdown-left white shadow-1">
+                    <a class="dropdown-item" href="{{  path('blog') }}">Articles</a>
+                    <a class="dropdown-item" href="{{  path('blog_create') }}">Créer un article</a>
+                    <a class="dropdown-item" href="/exo/formulaire/inscription">Formulaire</a>
+                </div>
+            </div>
+
+            <div class="dropdown" id="voiture-dropdown" data-ax="dropdown">
+                <div class="navbar-link active" data-target="voiture-dropdown">
+                    Projet Voiture
+                </div>
+                <div class="dropdown-content dropdown-left white shadow-1">
+                    <a class="dropdown-item" href="/voiture/new">New</a>
+                    <a class="dropdown-item" href="/voiture/findBy">FindBy</a>
+                    <a class="dropdown-item" href="/voiture/index">Index</a>
+                    <a class="dropdown-item" href="/voiture/findAll">FindAll</a>
+                </div>
+            </div>
+            {% endblock %}
+            {% if is_granted('ROLE_USER') %}
+                <a class="navbar-link" href="/user/profil">Mon profil</a>
+                <a class="navbar-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+                {% else %}
+            <a class="navbar-link" href="/login">Login</a>
+            <a class="navbar-link" href="/register">Register</a>
+
+
+            {% endif %}
+
+        </div>
+
+
+        <button class="btn transparent text-white hide-sm-up font-s5 ml-auto hide-sm-up" aria-label="Menu button">
+            <span class="iconify-inline" data-icon="mdi:menu"></span>
+        </button>
+    </nav>
+</header>

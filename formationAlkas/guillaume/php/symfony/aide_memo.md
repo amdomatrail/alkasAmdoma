@@ -262,3 +262,9 @@ sert à chainer avec le design patern fluent.
 ## #[IsGranted('ROLE_USER')]
 
 Permet d'autoriser un accès en controlant la connexion d'un utilisateur 
+
+## le point d'intérrogation sert à avoir une valeur null si pas de données:
+public function getId(): ?int
+{
+return $this->id;
+}
