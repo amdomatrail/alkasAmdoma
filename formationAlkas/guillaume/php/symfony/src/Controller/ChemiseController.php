@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Chemise;
 use App\Form\ChemiseType;
 use App\Repository\ChemiseRepository;
+use App\Repository\MarqueChemiseRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,8 +20,9 @@ class ChemiseController extends AbstractController
     #[IsGranted('ROLE_USER')]
     public function index(ChemiseRepository $chemiseRepository): Response
     {
+
         return $this->render('chemise/index.html.twig', [
-            'chemises' => $chemiseRepository->findAll(),
+            'chemises' => $chemiseRepository->findBy(['user' => $this->getUser()->getId()]),
         ]);
     }
 
@@ -49,24 +51,23 @@ class ChemiseController extends AbstractController
     #[Route('/{id}', name: 'app_chemise_show', methods: ['GET'])]
     public function show(Chemise $chemise): Response
     {
+
         return $this->render('chemise/show.html.twig', [
             'chemise' => $chemise,
         ]);
     }
-
+//    #[Route('/{id}', name: 'app_chemise_toast', methods: ['GET'])]
+//    public function toast(Chemise $chemise): Response
+//    {
+//        return $this->render('chemise/toast.html.twig', [
+//            'chemise' => $chemise,
+//        ]);
+//    }
     #[Route('/{id}/edit', name: 'app_chemise_edit', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Chemise $chemise, ChemiseRepository $chemiseRepository): Response
     {
 
-        $userId = $this->getUser()->getId();
-
-        $chemiseUserId = $chemise->getId();
-
-
-//        if ($userId !== $chemiseUserId && !$this->isGranted('ROLE_ADMIN')) {
-//            throw new \Exception('fuck u');
-//        }
         try {
             $this->denyAccessUnlessGranted('modifChemise', $chemise);
         } catch (\Exception $e) {
@@ -90,24 +91,24 @@ class ChemiseController extends AbstractController
             'chemise' => $chemise,
             'form' => $form,
         ]);
-
-
     }
 
     #[Route('/{id}', name: 'app_chemise_delete', methods: ['POST'])]
     public function delete(Request $request, Chemise $chemise, ChemiseRepository $chemiseRepository): Response
     {
         try {
-            $this->denyAccessUnlessGranted('modifChemise', $chemise);
+            $this->denyAccessUnlessGranted('deleteChemise', $chemise);
         } catch (\Exception $e) {
+
             if ($e->getCode() === 403) {
+
                 $this->addFlash("warning", "il y a une erreur de suppression");
+
             } else {
                 $this->addFlash('error', $e->getMessage());
             }
-            $chemiseRepository->remove($chemise, true);
+            return $this->redirectToRoute('home');
         }
-
 
         if ($this->isCsrfTokenValid('delete' . $chemise->getId($this->getUser()), $request->request->get('_token'))) {
             $chemiseRepository->remove($chemise, true);
@@ -115,7 +116,5 @@ class ChemiseController extends AbstractController
 
        return $this->redirectToRoute('app_chemise_index', [], Response::HTTP_SEE_OTHER);
    }
-
-
 
 }

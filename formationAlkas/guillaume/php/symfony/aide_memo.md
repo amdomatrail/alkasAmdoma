@@ -268,3 +268,22 @@ public function getId(): ?int
 {
 return $this->id;
 }
+## conteneur de service
+va contenir tous les services
+un bundle est un ensemble de service
+un service est une classe
+## condition ternaire
+$voiture ? 'testok' : 'testpasok'
+$result = $_GET['voiture'] ?? 'pigeot';
+$result = isset($_GET['voiture']) && $_GET['voiture'] ? $_GET['voiture'] : 'pigeot';
+
+$result = $_GET['voiture'] ? $_GET['voiture'] : 'pigeot';
+$result = $_GET['voiture'] ?: 'pigeot';
+c'est l'équivallent de ça :
+        if($_GET['voiture']) {
+            $result = $_GET['voiture'];
+        } else {
+            $result = 'pigeot'; 
+        }
+
+

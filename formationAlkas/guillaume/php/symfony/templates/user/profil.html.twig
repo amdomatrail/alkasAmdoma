@@ -19,6 +19,11 @@
         </div>
         <a href="#" class="sidenav-link active">Mon profil</a>
         <a href="#" class="sidenav-link">Mes annonces</a>
+        {% for marqueChem in app.user.MarqueChemises %}
+
+            <h4>Nom des chemises :</h4>
+            <p> {{ marqueChem.nom }}</p>
+        {% endfor %}
     </div>
 
     <main>

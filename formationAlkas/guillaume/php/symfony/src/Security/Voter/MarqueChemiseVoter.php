@@ -2,13 +2,14 @@
 
 namespace App\Security\Voter;
 
+use App\Entity\MarqueChemise;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class MarqueChemiseVoter extends Voter
+abstract class MarqueChemiseVoter extends Voter
 {
     public const EDIT = 'modifMarque';
 //    public const VIEW = 'POST_VIEW';
@@ -27,7 +28,7 @@ class MarqueChemiseVoter extends Voter
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
         return in_array($attribute, [self::EDIT])
-            && $subject instanceof \App\Entity\MarqueChemise;
+            && $subject instanceof MarqueChemise;
     }
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool

@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+{#        {{ form.contenu }}#}
+{#        {{ form.conversation }}#}
+{{ form_widget(form) }}
+{# {% for conversation in conversations %}#}
+{#<tr>#}
+{#    <td>{{ conversation.nom }}</td>#}
+{#        {% endfor %}#}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -22,6 +22,8 @@
                 <td>{{ chemise.nom }}</td>
                 <td>{{ chemise.taille }}</td>
                 <td>{{ chemise.couleur }}</td>
+                <td>{{ chemise.marqueChemise.nom }}</td>
+
                 <td>
                     <a href="{{ path('app_chemise_show', {'id': chemise.id}) }}">show</a>
                     <a href="{{ path('app_chemise_edit', {'id': chemise.id}) }}">edit</a>

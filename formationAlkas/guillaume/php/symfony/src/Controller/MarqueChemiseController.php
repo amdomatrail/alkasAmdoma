@@ -19,7 +19,7 @@ class MarqueChemiseController extends AbstractController
     public function index(MarqueChemiseRepository $marqueChemiseRepository): Response
     {
         return $this->render('marque_chemise/index.html.twig', [
-            'marque_chemises' => $marqueChemiseRepository->findAll(),
+            'marque_chemises' => $marqueChemiseRepository->findBy(['user'=>$this->getUser()->getId()]),
         ]);
     }
 

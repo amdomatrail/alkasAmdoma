@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conversation index{% endblock %}
+
+{% block body %}
+    <h1>Message</h1>
+conversation {{ conversation.titre }}
+    {% for message in messages %}
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ message.id }}</td>
+        </tr>
+        <tr>
+            <th>Contenu</th>
+            <td>{{ message.contenu }}</td>
+        </tr>
+        <tr>
+            <th>Date_creation</th>
+            <td>{{ message.dateCreation ? message.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Date_modification</th>
+            <td>{{ message.dateModification ? message.dateModification|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endfor %}
+
+    <a href="{{ path('app_conversation_new') }}">Create new</a>
+{% endblock %}
