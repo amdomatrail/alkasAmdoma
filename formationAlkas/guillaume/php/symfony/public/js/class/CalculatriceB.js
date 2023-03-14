@@ -1,5 +1,6 @@
 export default class CalculatriceB {
     constructor(el) {
+
         this.el = el
     }
 
@@ -25,9 +26,6 @@ export default class CalculatriceB {
         this.container.appendChild(this.btCalcul)
         this.container.appendChild(this.resultat)
     }
-
-
-
     calculatrice(chiffrePremier, operateur, chiffreSecond) {
         let result
 
@@ -63,6 +61,8 @@ export default class CalculatriceB {
 
     show()
     {
+
         this.el.appendChild(this.container)
     }
+
 }

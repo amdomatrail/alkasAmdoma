@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}React{% endblock %}
+
+ {% block javascripts %}
+     {{ parent() }}
+     <script crossorigin defer src="https://unpkg.com/react@18/umd/react.development.js"></script>
+     <script crossorigin defer src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+     <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+     <script type="text/babel" defer src="/js/composantJSX.js"></script>
+ {% endblock %}
+
+{% block body %}
+
+
+    <div id="composant1"></div>
+    <div id="composant2"></div>
+
+
+{% endblock %}

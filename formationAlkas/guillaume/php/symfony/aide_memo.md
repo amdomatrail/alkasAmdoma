@@ -4,7 +4,7 @@ Création projet symfony :
 
 1 - se mettre sous le bon répertoire d'installation
 si le projet s'appelle montagne tapez :
-
+symfony new --full montagnes
 symfony new montagne --version=5.4
 
 se mettre sous le répertoire du projet créé
