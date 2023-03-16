@@ -1,0 +1,149 @@
+/* Fonts import de la police de caractère*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+/* Variables , Mise en place d'une variable pour centraliser la taille des caractères */
+:root {
+    --font-size: 1rem;
+}
+/*.light-mode {*/
+/*    --navbar-color:#222;*/
+/*    --navbar-bg-color:#f0f0f0;*/
+/*}*/
+.dark-mode{
+    --navbar-color:#FFF;
+    --navbar-bg-color:#000;
+}
+/* Reset appliquer sur tous les éléments grâce à * */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+/* Aucun affichage des listes à puce */
+ul{
+    list-style: none;
+}
+/* Basic style */
+body{
+    font-size:var(--font-size);
+    font-family: 'Poppins',sans-serif;
+}
+.main.content {
+    padding: 1rem;
+}
+/* Navbar hauteur du menu à 65px*/
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    height: 65px;
+    color:var(--navbar-color);
+    background: var(--navbar-bg-color);
+}
+/* Permet de mettre les éléments en ligne */
+.navbar_links{
+    display: flex;
+}
+/* Faire des espaces à gauche et à droite de 10px entre les éléments du menu */
+.navbar_link{
+    padding: 0 10px;
+}
+/* Retire le soulignement des liens du menu et change leurs couleurs */
+.navbar_link > a {
+    text-decoration: none;
+    color:var(--navbar-color);
+}
+/* Effet sur le survol des liens */
+.navbar_link:hover > a {
+    transition:all .2s ease-in-out;
+    color: #0069d9;
+}
+/* le menu se cole à droite */
+.burger {
+    display: none;
+}
+/* Small devices */
+@media screen and (max-width: 768px) {
+    /* Cible tous les liens pour les mettre en colonne */
+    .navbar_links {
+        display: flex;
+        flex-direction: column;
+        width: 0;
+        height: calc(100vh - 65px);  /* Calcul 100% de la hauteur - la hauteur du menu */
+        position: absolute;
+        top: 65px;
+        right: 0;
+        background: var(--navbar-bg-color);
+        transition:all .5s ease-in-out;
+    }
+    .show_nav .navbar_links {
+        width: 100%;
+    }
+    .navbar_link > a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.6rem;
+        transition:all .4s ease-in-out;
+    }
+    /* Permet de créé un effet de survol sur les liens avec un décalage et un écartement des lettres */
+    .navbar_link > a:hover {
+        display: block;
+        padding-left: 2rem;
+        letter-spacing:5px;
+    }
+    /* Toggle menu */
+    .burger {
+        display: block;
+        position: relative;
+        padding: 0;
+        width: 45px;
+        height: 45px;
+        border: none;
+        background: transparent;
+        cursor:pointer;
+    }
+    /* Barre centrale du menu burger */
+    .bar {
+        display: block;
+        width: 45px;
+        height: 4px;
+        background: var(--navbar-color);
+        border-radius: 3px;
+        transition: all .5s ease-in-out;
+    }
+    /* En cliquant la barre du milieu du burger disparaît */
+    .show_nav .bar {
+        width: 0;
+        background: transparent;
+    }
+    /* Barre haute et basse du menu burger */
+    .bar::before, .bar::after {
+        content: "";
+        width: 45px;
+        height: 4px;
+        left: 0;
+        position: absolute;
+        background: var(--navbar-color);
+        border-radius: 3px;
+        transition: all .5s ease-in-out;
+    }
+    /* Position du trait supérieur du burger */
+    .bar::before {
+        transform: translateY(-12px);
+    }
+    /* Position du trait inférieur du burger */
+    .bar::after {
+        transform: translateY(12px);
+    }
+    /* Transforme les deux traits restants du menu burger en croix */
+    .show_nav .bar::before {
+        transform: rotate(45deg);
+    }
+    .show_nav .bar::after {
+        transform: rotate(-45deg);
+    }
+}
+
+

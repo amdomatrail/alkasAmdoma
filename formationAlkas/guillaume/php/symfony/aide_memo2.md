@@ -5,7 +5,6 @@ pour installer symfony avec toutes les fonctionnalités.
 ## créé un fichier readme.md pour savoir comment fonctionne le site
 ## création d'un dépot GitLab
 ## Pipeline d'intégration continue
-
 ## création d'un projet (commencé par créé la table user)
 symfony new --full petiteannonces
 # Gestion de la page d'accueil
@@ -61,8 +60,51 @@ et retirer le setCreatedAt
 ## SubmitType::class,TextType::class, TextareaType::class,EntityType::class,
     ['class' => Categorie::class]
 
+## Editeur de texte wysiwyg intégrer à notre projet :
+composer require friendsofsymfony/ckeditor-bundle
+symfony console ckeditor:install
+symfony console assets:install public
+dans le fichier créé : config/packages/fos_ckeditor.yaml
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
 
+twig:
+form_themes:
+- '@FOSCKEditor/Form/ckeditor_widget.html.twig'
 
+fos_ck_editor:
+configs:
+main_config:
+toolbar:
+- { name: "styles", items: ['Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Image', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor', 'BGColor', 'Source'] }
+Remplacer le textareaType::class par CKEditorType::class
 
+## bouton parcourir pour insérer des fichiers :
+composer require helios-ag/fm-elfinder-bundle
+symfony console elfinder:install
+dans le fichier créé : config/packages/fm_elfinder.yaml
 
+fm_elfinder:
+assets_path: /assets # chemin des fichiers JS
+instances:
+default:
+locale: fr # Langue
+editor: ckeditor # Editeur utilisé
+fullscreen: true # Taille d'affichage
+theme: smoothness # Thème à utiliser
+include_assets: true # Charge automatiquement les fichiers nécessaires
+connector:
+debug: false # Désactive le débug
+roots:
+uploads:
+show_hidden: false # Masque les fichiers cachés
+driver: LocalFileSystem # Pilote des fichiers
+path: uploads/images # Chemin d'upload
+upload_allow: ['image/png', 'image/jpg', 'image/jpeg'] # Fichiers autorisés
+upload_deny: ['all'] # Fichiers interdits
+upload_max_size: 2M # Taille maximum
 
+Rajouter dans config/packages/fos_ckeditor.yaml
+filebrowserBrowseRoute: elfinder
+filebrowserBrowseRouteParameters: []
+
+Si cela ne fonctionne pas créé le un dossier uploads dans public et un dossier images dans uploads

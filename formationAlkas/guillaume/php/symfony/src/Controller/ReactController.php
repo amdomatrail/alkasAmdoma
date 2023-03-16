@@ -25,4 +25,10 @@ class ReactController extends AbstractController
     {
         return $this->render('react/exoComposantJSX.html.twig');
     }
+
+    #[Route('/node', name: 'node')]
+    public function test(): Response
+    {
+        return $this->render('react/node.html.twig');
+    }
 }
